@@ -138,3 +138,57 @@ export const updateOrderStatus = async (req, res) => {
     });
   }
 };
+
+// DASHBOARD ANALYTICS
+export const getDashboardData = async (req, res) => {
+  try {
+    // Total Orders
+    const totalOrders = await Order.countDocuments();
+
+    // Total Revenue
+    const revenueResult = await Order.aggregate([
+      {
+        $group: {
+          _id: null,
+          totalRevenue: {
+            $sum: "$totalAmount"
+          }
+        }
+      }
+    ]);
+
+    const totalRevenue =
+      revenueResult[0]?.totalRevenue || 0;
+
+    // Orders Per Status
+    const statusData = await Order.aggregate([
+      {
+        $group: {
+          _id: "$status",
+          count: {
+            $sum: 1
+          }
+        }
+      }
+    ]);
+
+    const ordersPerStatus = {};
+
+    statusData.forEach((item) => {
+      ordersPerStatus[item._id] = item.count;
+    });
+
+    res.status(200).json({
+      success: true,
+      dashboard: {
+        totalOrders,
+        totalRevenue,
+        ordersPerStatus
+      }
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
