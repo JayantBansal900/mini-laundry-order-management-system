@@ -169,3 +169,37 @@
     font-size: 2rem;
   }
 }
+
+.table-container {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+}
+
+.table-container h2 {
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+table th {
+  background: #f9fafb;
+}
+
+table select {
+  padding: 8px;
+}
+

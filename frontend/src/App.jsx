@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+
 import API from "./services/api";
+
 import DashboardCards from "./components/DashboardCards";
 import CreateOrderForm from "./components/CreateOrderForm";
+import OrdersTable from "./components/OrdersTable";
+
 import "./App.css";
 
 function App() {
@@ -11,6 +15,9 @@ function App() {
     ordersPerStatus: {}
   });
 
+  const [orders, setOrders] = useState([]);
+
+  // FETCH DASHBOARD
   const fetchDashboard = async () => {
     try {
       const { data } = await API.get(
@@ -23,8 +30,25 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  // FETCH ORDERS
+  const fetchOrders = async () => {
+    try {
+      const { data } = await API.get("/orders");
+
+      setOrders(data.orders);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // REFRESH EVERYTHING
+  const refreshData = () => {
     fetchDashboard();
+    fetchOrders();
+  };
+
+  useEffect(() => {
+    refreshData();
   }, []);
 
   return (
@@ -36,7 +60,12 @@ function App() {
       <DashboardCards dashboard={dashboard} />
 
       <CreateOrderForm
-        refreshDashboard={fetchDashboard}
+        refreshDashboard={refreshData}
+      />
+
+      <OrdersTable
+        orders={orders}
+        refreshOrders={refreshData}
       />
     </div>
   );
