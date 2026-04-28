@@ -1,6 +1,7 @@
 import Order from "../models/orderModel.js";
 import { PRICE_MAP } from "../utils/priceMap.js";
 
+// CREATE ORDER
 export const createOrder = async (req, res) => {
   try {
     const { customerName, phone, garments } = req.body;
@@ -48,7 +49,48 @@ export const createOrder = async (req, res) => {
       success: true,
       order
     });
-  } catch (error) { 
+  } catch (error) {
+    res.status(500).json({
+      message: error.message
+    });
+  }
+};
+
+// GET ALL ORDERS + FILTERS
+export const getOrders = async (req, res) => {
+  try {
+    const { status, customerName, phone } = req.query;
+
+    let filter = {};
+
+    // Filter by status
+    if (status) {
+      filter.status = status;
+    }
+
+    // Filter by customer name
+    if (customerName) {
+      filter.customerName = {
+        $regex: customerName,
+        $options: "i"
+      };
+    }
+
+    // Filter by phone
+    if (phone) {
+      filter.phone = phone;
+    }
+
+    const orders = await Order.find(filter).sort({
+      createdAt: -1
+    });
+
+    res.status(200).json({
+      success: true,
+      count: orders.length,
+      orders
+    });
+  } catch (error) {
     res.status(500).json({
       message: error.message
     });
