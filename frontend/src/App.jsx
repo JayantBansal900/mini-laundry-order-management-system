@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import API from "./services/api";
 import DashboardCards from "./components/DashboardCards";
+import CreateOrderForm from "./components/CreateOrderForm";
 import "./App.css";
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
       </h1>
 
       <DashboardCards dashboard={dashboard} />
+
+      <CreateOrderForm
+        refreshDashboard={fetchDashboard}
+      />
     </div>
   );
 }
