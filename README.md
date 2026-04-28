@@ -1,3 +1,4 @@
+````md
 # Mini Laundry Order Management System
 
 A full-stack laundry order management system built as part of the Quick Dry Cleaning Software Development Engineering Internship assignment.
@@ -8,6 +9,20 @@ This application helps a dry cleaning store manage:
 - Order tracking
 - Status updates
 - Dashboard analytics
+
+---
+
+# Live Demo
+
+## Frontend
+
+https://mini-laundry-order-management-syste-seven.vercel.app
+
+---
+
+## Backend API
+
+https://laundry-management-backend.onrender.com
 
 ---
 
@@ -65,7 +80,7 @@ mini-laundry-order-management-system/
 │
 ├── Laundry-Management-System-API.postman_collection.json
 └── README.md
-```
+````
 
 ---
 
@@ -200,32 +215,34 @@ GET /api/orders/dashboard
 AI tools were heavily used during the development of this project to accelerate implementation and improve productivity.
 
 ## Tools Used
-- ChatGPT
-- GitHub Copilot
-- Gemini
+
+* ChatGPT
+* GitHub Copilot
+* Gemini
 
 ---
 
 ## How AI Helped
 
 AI tools assisted with:
-- Backend API scaffolding
-- MongoDB integration guidance
-- React component generation
-- UI styling improvements
-- Debugging support
-- API testing workflows
-- README documentation
+
+* Backend API scaffolding
+* MongoDB integration guidance
+* React component generation
+* UI styling improvements
+* Debugging support
+* API testing workflows
+* README documentation
 
 ---
 
 ## Sample Prompts Used
 
-- "Create Express.js API for laundry order management"
-- "Generate MongoDB schema for laundry orders"
-- "Build React dashboard UI"
-- "Implement order status update API"
-- "Improve SaaS dashboard CSS styling"
+* "Create Express.js API for laundry order management"
+* "Generate MongoDB schema for laundry orders"
+* "Build React dashboard UI"
+* "Implement order status update API"
+* "Improve SaaS dashboard CSS styling"
 
 ---
 
@@ -233,21 +250,21 @@ AI tools assisted with:
 
 Some AI-generated solutions required manual debugging and optimization:
 
-- MongoDB Atlas TLS connection fixes
-- Express route ordering fixes
-- Responsive UI adjustments
-- Typography balancing
-- Frontend-backend synchronization fixes
-- Vite compatibility troubleshooting
+* MongoDB Atlas TLS connection fixes
+* Express route ordering fixes
+* Responsive UI adjustments
+* Typography balancing
+* Frontend-backend synchronization fixes
+* Vite compatibility troubleshooting
 
 ---
 
 # Challenges Faced
 
-- MongoDB Atlas SSL/TLS connection issues
-- Managing real-time frontend refresh after updates
-- Responsive dashboard layout optimization
-- Status validation implementation
+* MongoDB Atlas SSL/TLS connection issues
+* Managing real-time frontend refresh after updates
+* Responsive dashboard layout optimization
+* Status validation implementation
 
 ---
 
@@ -255,22 +272,22 @@ Some AI-generated solutions required manual debugging and optimization:
 
 To keep the project lightweight and focused within the assignment timeline:
 
-- Authentication was not implemented
-- Multi-garment dynamic forms were simplified
-- Payment gateway integration was skipped
-- Advanced admin role management was not added
+* Authentication was not implemented
+* Multi-garment dynamic forms were simplified
+* Payment gateway integration was skipped
+* Advanced admin role management was not added
 
 ---
 
 # Future Improvements
 
-- Authentication & Authorization
-- Multi-item garment forms
-- Search by garment type
-- Payment integration
-- Deployment improvements
-- Advanced analytics dashboard
-- Export invoices as PDF
+* Authentication & Authorization
+* Multi-item garment forms
+* Search by garment type
+* Payment integration
+* Deployment improvements
+* Advanced analytics dashboard
+* Export invoices as PDF
 
 ---
 
@@ -290,3 +307,6 @@ Laundry-Management-System-API.postman_collection.json
 
 GitHub:
 https://github.com/JayantBansal900
+
+```
+```
