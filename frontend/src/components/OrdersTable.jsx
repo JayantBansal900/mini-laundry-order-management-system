@@ -36,45 +36,59 @@ function OrdersTable({ orders, refreshOrders }) {
         </thead>
 
         <tbody>
-          {orders.map((order) => (
-            <tr key={order._id}>
-              <td>{order.customerName}</td>
-
-              <td>{order.phone}</td>
-
-              <td>₹ {order.totalAmount}</td>
-
-              <td>{order.status}</td>
-
-              <td>
-                <select
-                  value={order.status}
-                  onChange={(e) =>
-                    handleStatusChange(
-                      order._id,
-                      e.target.value
-                    )
-                  }
-                >
-                  <option value="RECEIVED">
-                    RECEIVED
-                  </option>
-
-                  <option value="PROCESSING">
-                    PROCESSING
-                  </option>
-
-                  <option value="READY">
-                    READY
-                  </option>
-
-                  <option value="DELIVERED">
-                    DELIVERED
-                  </option>
-                </select>
+          {orders.length === 0 ? (
+            <tr>
+              <td
+                colSpan="5"
+                style={{
+                  textAlign: "center",
+                  padding: "20px"
+                }}
+              >
+                No orders found
               </td>
             </tr>
-          ))}
+          ) : (
+            orders.map((order) => (
+              <tr key={order._id}>
+                <td>{order.customerName}</td>
+
+                <td>{order.phone}</td>
+
+                <td>₹ {order.totalAmount}</td>
+
+                <td>{order.status}</td>
+
+                <td>
+                  <select
+                    value={order.status}
+                    onChange={(e) =>
+                      handleStatusChange(
+                        order._id,
+                        e.target.value
+                      )
+                    }
+                  >
+                    <option value="RECEIVED">
+                      RECEIVED
+                    </option>
+
+                    <option value="PROCESSING">
+                      PROCESSING
+                    </option>
+
+                    <option value="READY">
+                      READY
+                    </option>
+
+                    <option value="DELIVERED">
+                      DELIVERED
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>

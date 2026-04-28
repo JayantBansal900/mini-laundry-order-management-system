@@ -17,7 +17,10 @@ function DashboardCards({ dashboard }) {
         {Object.entries(
           dashboard.ordersPerStatus || {}
         ).map(([status, count]) => (
-          <p key={status}>
+          <p
+            key={status}
+            className="status-item"
+          >
             {status}: {count}
           </p>
         ))}
