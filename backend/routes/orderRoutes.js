@@ -3,10 +3,14 @@ import express from "express";
 import {
   createOrder,
   getOrders,
-  updateOrderStatus
+  updateOrderStatus,
+  getDashboardData
 } from "../controllers/orderController.js";
 
 const router = express.Router();
+
+// DASHBOARD
+router.get("/dashboard", getDashboardData);
 
 // CREATE ORDER
 router.post("/", createOrder);
