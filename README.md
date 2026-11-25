@@ -1,4 +1,5 @@
 # Mini Laundry Order Management System
+[![CI](https://github.com/JayantBansal900/mini-laundry-order-management-system/actions/workflows/ci.yml/badge.svg)](https://github.com/JayantBansal900/mini-laundry-order-management-system/actions/workflows/ci.yml)
 
 A full-stack laundry order management system built as part of the Quick Dry Cleaning Software Development Engineering Internship assignment.
 
