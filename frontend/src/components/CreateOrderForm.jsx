@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import API from "../services/api";
 
@@ -117,5 +118,9 @@ function CreateOrderForm({ refreshDashboard }) {
     </div>
   );
 }
+
+CreateOrderForm.propTypes = {
+  refreshDashboard: PropTypes.func.isRequired,
+};
 
 export default CreateOrderForm;

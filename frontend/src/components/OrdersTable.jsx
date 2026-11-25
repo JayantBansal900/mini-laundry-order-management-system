@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import API from "../services/api";
 
 function OrdersTable({ orders, refreshOrders }) {
@@ -94,5 +95,18 @@ function OrdersTable({ orders, refreshOrders }) {
     </div>
   );
 }
+
+OrdersTable.propTypes = {
+  orders: PropTypes.arrayOf(
+    PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      customerName: PropTypes.string,
+      phone: PropTypes.string,
+      status: PropTypes.string,
+      totalAmount: PropTypes.number,
+    })
+  ).isRequired,
+  refreshOrders: PropTypes.func.isRequired,
+};
 
 export default OrdersTable;

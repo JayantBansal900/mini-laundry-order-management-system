@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import API from "./services/api";
 
@@ -18,7 +18,7 @@ function App() {
   const [orders, setOrders] = useState([]);
 
   // FETCH DASHBOARD
-  const fetchDashboard = async () => {
+  const fetchDashboard = useCallback(async () => {
     try {
       const { data } = await API.get(
         "/orders/dashboard"
@@ -28,10 +28,10 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   // FETCH ORDERS
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       const { data } = await API.get("/orders");
 
@@ -39,17 +39,17 @@ function App() {
     } catch (error) {
       console.log(error);
     }
-  };
+  }, []);
 
   // REFRESH EVERYTHING
-  const refreshData = () => {
+  const refreshData = useCallback(() => {
     fetchDashboard();
     fetchOrders();
-  };
+  }, [fetchDashboard, fetchOrders]);
 
   useEffect(() => {
     refreshData();
-  }, []);
+  }, [refreshData]);
 
   return (
     <div className="container">

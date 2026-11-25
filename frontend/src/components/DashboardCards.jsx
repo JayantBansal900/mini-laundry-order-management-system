@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 function DashboardCards({ dashboard }) {
   return (
     <div className="dashboard-grid">
@@ -28,5 +29,13 @@ function DashboardCards({ dashboard }) {
     </div>
   );
 }
+
+DashboardCards.propTypes = {
+  dashboard: PropTypes.shape({
+    totalOrders: PropTypes.number,
+    totalRevenue: PropTypes.number,
+    ordersPerStatus: PropTypes.objectOf(PropTypes.number),
+  }).isRequired,
+};
 
 export default DashboardCards;
